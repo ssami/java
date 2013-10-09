@@ -2,8 +2,8 @@
 public class BinNode {
 
 	private int data = 0; 
-	private BinNode left = new BinNode(); 
-	private BinNode right = new BinNode(); 
+	private BinNode left;  
+	private BinNode right; 
 	
 	public void setData(int data){
 		this.data = data; 
