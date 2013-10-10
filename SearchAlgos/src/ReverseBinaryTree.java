@@ -3,6 +3,7 @@ public class ReverseBinaryTree {
 
 	public BinNode initTree(){
 		BinNode root = new BinNode(); 
+		root.setData(1);
 		
 		BinNode two = new BinNode(); 
 		two.setData(2);
@@ -63,10 +64,34 @@ public class ReverseBinaryTree {
 		}
 	}
 	
+	public void reverseTree(BinNode curr){
+			
+		if ((null == curr.getLeftChild()) && (null == curr.getRightChild())){
+			return; 
+		}
+		else {
+			BinNode temp = curr.getRightChild(); 
+			curr.setRightChild(curr.getLeftChild());
+			curr.setLeftChild(temp);
+			if (curr.getRightChild() != null){
+				reverseTree(curr.getRightChild());
+			}
+			if (curr.getLeftChild() != null){
+				reverseTree(curr.getLeftChild());
+			}	
+		}
+			
+	}
+	
+	
 	
 	public static void main (String args[]){
 		ReverseBinaryTree rbt = new ReverseBinaryTree(); 
-		rbt.printTree(rbt.initTree()); 
+		BinNode root = rbt.initTree(); 
+		//rbt.printTree(root);
+		rbt.reverseTree(root);
+		
+		rbt.printTree(root);
 		
 	}
 }
