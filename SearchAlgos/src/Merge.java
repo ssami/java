@@ -6,9 +6,36 @@ public class Merge {
 	public ArrayList<Integer> mergeLists(ArrayList<Integer> aLess, ArrayList<Integer> aMore){
 		ArrayList<Integer> mergedList = new ArrayList<Integer>(); 
 		int i=0, p=0; 
-//		while (true){
-//			
-//		}
+		while (true){
+			System.out.println("Left: " + aLess.get(i) + " Right: " + aMore.get(p)); 
+			if (aLess.get(i).intValue() < aMore.get(p).intValue()){
+				mergedList.add(aLess.get(i)); 
+				if (i< aLess.size()-1){
+					i++; 
+				}
+			}
+			else if (aLess.get(i).intValue() > aMore.get(p).intValue()){
+				mergedList.add(aMore.get(p)); 
+				if (p<aMore.size()-1){
+					p++;
+				}
+			}
+			else {
+				mergedList.add(aLess.get(i)); 
+				mergedList.add(aMore.get(p));
+				if (i< aLess.size()-1){
+					i++; 
+				}
+				if (p<aMore.size()-1){
+					p++;
+				}
+				
+			}
+			
+			if (i==aLess.size() && p==aMore.size()){
+				break;
+			}
+		}
 		
 		return mergedList; 
 	}
