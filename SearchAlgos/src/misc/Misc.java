@@ -1,5 +1,8 @@
 package misc;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Misc {
@@ -33,14 +36,25 @@ public class Misc {
 	}
 	
 	
-	public static void main (String args[]){
-		int[] test = {31, 0, 2345432, 90, 99, 10001, 9008009};  
+	public static void main (String args[]) throws IOException{
+		/*int[] test = {31, 0, 2345432, 90, 99, 10001, 9008009};  
 		Misc m = new Misc(); 
 		for (int i : test){
 			System.out.println(m.isPalindrome(i));
 		}
+	
+		*/
+		ArrayList<Integer> nums = new ArrayList<Integer>(); 
+		nums.add(new Integer(5)); 
+		nums.add(new Integer(10)); 
+		nums.add(new Integer(15)); 
 		
+		System.out.println(nums.indexOf(5)); 
+		System.out.println(nums.indexOf(10));
+		System.out.println(nums.indexOf(20)); 
 	}
+	
+	
 	
 }
 
