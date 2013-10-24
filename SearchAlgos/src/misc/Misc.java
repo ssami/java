@@ -35,6 +35,20 @@ public class Misc {
 		return true; 
 	}
 	
+	public int lonelyNumber(ArrayList<Integer> list){
+		ArrayList<Integer> seen = new ArrayList<Integer>(); 
+		int expectedCount = 0; 
+		int givenCount = 0; 
+		for (Integer i : list){
+			if (!seen.contains(i)){
+				expectedCount += i.intValue()*2; 
+			}
+			givenCount += i.intValue(); 
+		}
+		
+		return expectedCount - givenCount; 
+	}
+	
 	
 	public static void main (String args[]) throws IOException{
 		/*int[] test = {31, 0, 2345432, 90, 99, 10001, 9008009};  
