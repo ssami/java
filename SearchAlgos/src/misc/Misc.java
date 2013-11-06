@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Misc {
-
+	
 	
 	public boolean isPalindrome(int num){
 		
