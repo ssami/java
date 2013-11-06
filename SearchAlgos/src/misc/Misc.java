@@ -1,9 +1,8 @@
 package misc;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Misc {
 
@@ -35,6 +34,17 @@ public class Misc {
 		return true; 
 	}
 	
+	public void printFibonacci(int count, int prev1, int prev2){
+		if (count == 0){
+			return; 
+		}
+		else {
+			count--; 
+			System.out.println(prev1+prev2); 
+			printFibonacci(count, prev1+prev2, prev1); 
+		}
+	}
+	
 	public int lonelyNumber(ArrayList<Integer> list){
 		ArrayList<Integer> seen = new ArrayList<Integer>(); 
 		int expectedCount = 0; 
@@ -51,22 +61,33 @@ public class Misc {
 	
 	
 	public static void main (String args[]) throws IOException{
-		/*int[] test = {31, 0, 2345432, 90, 99, 10001, 9008009};  
+		int[] test = {31, 0, 2345432, 90, 99, 10001, 9008009};  
 		Misc m = new Misc(); 
-		for (int i : test){
+		/*for (int i : test){
 			System.out.println(m.isPalindrome(i));
 		}
-	
 		*/
+		
+		m.printFibonacci(5, 1, 0);
+		
 		ArrayList<Integer> nums = new ArrayList<Integer>(); 
 		nums.add(new Integer(5)); 
-		nums.add(new Integer(10)); 
+		nums.add(5);
+		/*nums.add(new Integer(10)); 
 		nums.add(new Integer(15)); 
 		
 		System.out.println(nums.indexOf(5)); 
 		System.out.println(nums.indexOf(10));
-		System.out.println(nums.indexOf(20)); 
+		System.out.println(nums.indexOf(20)); */
+	
+		for (int n : nums){
+			System.out.println(n);
+		}
+		HashMap<Integer, Integer> trackNums = new HashMap<Integer, Integer>(); 
+		
+		
 	}
+	
 	
 	
 	
