@@ -50,6 +50,24 @@ public class Misc {
 	}
 	
 	
+	public void magicSquare(){
+		// numbers that should be arranged: 0-9 inclusive
+		int range = 9; 
+		double sqsize = Math.sqrt((double) range);
+		int size = Math.round((float)sqsize);  
+		int[][] magicSquare = new int[size][size]; 
+		
+		
+		
+		for (int r=0; r<size; r++){
+			for (int c=0; c<size; c++){
+				//magicSquare[r][c] = 
+			}
+		}
+		
+	}
+	
+	
 	public static void main (String args[]) throws IOException{
 		/*int[] test = {31, 0, 2345432, 90, 99, 10001, 9008009};  
 		Misc m = new Misc(); 
