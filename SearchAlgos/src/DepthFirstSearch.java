@@ -34,6 +34,11 @@ public class DepthFirstSearch {
 		
 	}
 	
+	public void depthFirstSearch(Node n, ArrayList<Node> stack){
+
+		
+	}
+	
 	public static void main (String[] args){
 		
 	}

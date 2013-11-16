@@ -1,6 +1,7 @@
 package misc;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MaxHeap {
 
@@ -37,6 +38,18 @@ public class MaxHeap {
 		
 	}
 	
+	public static Integer getMax(ArrayList<Integer> heap){
+		
+		int largest = heap.remove(0);
+		int lastInd = heap.size()-1;
+		heap.add(0, heap.remove(lastInd));
+		bubbleDown(heap, 0); 
+		
+		return largest; 
+		
+	}
+	
+	
 	public static ArrayList<Integer> insertNode(ArrayList<Integer> heap, Integer ins){
 		
 		heap.add(ins); //adds to end of the list 
@@ -60,10 +73,39 @@ public class MaxHeap {
 			return; 
 		}
 	}
+
+	
+	private static void bubbleDown(ArrayList<Integer> heap, Integer currInd){
+		boolean canRetL = true, canRetR = true; 
+		if ((currInd*2 + 1 < heap.size()) && (heap.get(currInd) < heap.get(currInd*2 + 1))){
+			canRetL = false; 
+		}
+		if ((currInd*2 + 2 < heap.size()) && (heap.get(currInd) < heap.get(currInd*2 + 2))){
+			canRetR = false; 
+		}
+	
+		
+		if (canRetL && canRetR) return; 
+		
+		else {
+			int childInd = currInd*2 + 1;
+			int maxInd = childInd; 
+			for (int i=0; i<2; i++){
+				if ((childInd + i < heap.size()) && (heap.get(childInd + i) > heap.get(maxInd))){
+					maxInd = childInd + i; 
+				}
+			}
+			int tmp = heap.get(currInd); 
+			heap.set(currInd, heap.get(maxInd));
+			heap.set(maxInd, tmp); 
+			bubbleDown(heap, maxInd); 
+		}
+	}
 	
 	public static void main (String args[]){
 		ArrayList<Integer> heap = MaxHeap.init();
 		MaxHeap.insertNode(heap, new Integer(19));
+		MaxHeap.getMax(heap);
 		
 	}
 	
