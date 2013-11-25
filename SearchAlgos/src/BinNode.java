@@ -1,9 +1,9 @@
 
 public class BinNode {
 
-	private int data = 0; 
-	private BinNode left;  
-	private BinNode right; 
+	public int data = 0; 
+	public BinNode left;  
+	public BinNode right; 
 	
 	public void setData(int data){
 		this.data = data; 
