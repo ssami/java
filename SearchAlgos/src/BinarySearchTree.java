@@ -42,6 +42,48 @@ public class BinarySearchTree {
 		return root; 
 	}
 	
+
+	//http://thereq.com/q/203/java-software-interview-question/longest-path-in-a-binary-tree
+	public int measurePath(BinNode node){
+		if (node.getLeftChild() == null && node.getRightChild() == null){
+			return 0; 
+		}
+		else {
+			int leftCt = 0, rightCt = 0; 
+			if (node.getLeftChild() != null){
+				leftCt = measurePath(node.getLeftChild());
+			}
+			if (node.getRightChild() != null){
+				rightCt = measurePath(node.getRightChild()); 
+			}
+			
+			return leftCt > rightCt? leftCt + 1 : rightCt + 1; 
+		}
+	}
+	
+	
+	public void dfsStack(BinNode root){
+		ArrayList<BinNode> stack = new ArrayList<BinNode>();
+		stack.add(root);
+		dfs(root, stack); 
+		
+	}
+	
+	private void dfs(BinNode n, ArrayList<BinNode> stack){
+		while (!stack.isEmpty()){
+			BinNode curr = stack.remove(0);
+			
+			if (curr.getRightChild() != null){
+				stack.add(0, curr.getRightChild());
+			}
+			System.out.println(curr.getData());
+			if (curr.getLeftChild() != null){
+				stack.add(0, curr.getLeftChild());
+			}
+			
+		}
+	}
+	
 	public void traverseInOrderBST(BinNode node){
 		if (node.getLeftChild() == null && node.getRightChild() == null){
 			System.out.println(node.getData()); 
@@ -58,6 +100,42 @@ public class BinarySearchTree {
 		}
 	}
 	
+	
+	//http://thereq.com/q/204/java-software-interview-question/the-nth-smallest-element-in-a-binary-tree
+//	public int nthSmallest(BinNode node, int n){
+//		
+//		if (node.getLeftChild() == null && node.getRightChild() == null){
+//			// this is a leaf, start counting down from n
+//			n--; 
+//			if (n > 0){
+//				return n; 
+//			}
+//			else {
+//				System.out.println(node.getData());
+//				return n; 
+//			}
+//		}		
+//		if (n > 0 && node.getLeftChild() != null){
+//			n = nthSmallest(node.getLeftChild(), n);
+//		}
+//		n--; 
+//		if (n == 0){
+//			System.out.println(node.getData());
+//			return n; 
+//		}
+//		else {
+//			if (n > 0 && node.getRightChild() != null){
+//				n = nthSmallest(node.getRightChild(), n);
+//			}
+//			if (n > 0){
+//				System.out.println(node.getData());
+//			}
+//			return n; 
+//		}		
+//	}
+
+	
+	//http://codercareer.blogspot.com/2011/09/no-04-paths-with-specified-sum-in.html
 	public void printPath(BinNode root, int val) {
 		ArrayList<ArrayList<BinNode>> paths = new ArrayList<ArrayList<BinNode>>(); 
 		printPath(root, val, 0, paths); 
@@ -71,6 +149,7 @@ public class BinarySearchTree {
 		
 	}
 
+	
 	
 	private boolean printPath(BinNode curr, int val, int currVal, ArrayList<ArrayList<BinNode>> paths){
 		if (curr.left == null && curr.right == null) {
@@ -139,6 +218,12 @@ public class BinarySearchTree {
 		BinarySearchTree bst = new BinarySearchTree(); 
 		BinNode root = bst.init();
 		//bst.traverseInOrderBST(root);
-		bst.printPath(root, 27);
+		//bst.printPath(root, 27);
+		//bst.nthSmallest(root, 4);
+		//bst.dfsStack(root);
+		
+		System.out.println(bst.measurePath(root));
+		
+		
 	}
 }
