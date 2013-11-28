@@ -4,8 +4,7 @@ import java.util.ArrayList;
 public class DepthFirstSearch {
 	
 	public void initNodes(){
-		
-		
+			
 		Node start = new Node(); 
 		start.setName("start");
 		start.setWeight(5); 
@@ -35,7 +34,7 @@ public class DepthFirstSearch {
 	}
 	
 	public void depthFirstSearch(Node n, ArrayList<Node> stack){
-
+		
 		
 	}
 	

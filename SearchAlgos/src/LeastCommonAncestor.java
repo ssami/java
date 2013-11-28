@@ -49,6 +49,7 @@ public class LeastCommonAncestor {
 		
 		ArrayList<Node> fedges = new ArrayList<Node>(); 
 		fedges.add(eight);
+		five.addEdges(fedges);
 		
 		ArrayList<Node> sedges = new ArrayList<Node>(); 
 		sedges.add(seven);
@@ -57,7 +58,22 @@ public class LeastCommonAncestor {
 		return root; 
 	}
 	
+	public static Node leastCommonAncestor(Node curr, Node a, Node b){
+		
+		
+		return null; 
+	}
 	
+	public static void main (String args[]){
+		Node root = LeastCommonAncestor.init();
+		Node seven = new Node(); 
+		seven.setWeight(7);
+		
+		Node eight = new Node(); 
+		eight.setWeight(8);
+		
+		LeastCommonAncestor.leastCommonAncestor(root, seven, eight);
+	}
 	
 	
 

@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 
 
@@ -99,7 +100,22 @@ public class BinarySearchTree {
 			}
 		}
 	}
-	
+
+	public void traversePreOrderBST(BinNode node){
+		if (node.getLeftChild() == null && node.getRightChild() == null){
+			System.out.println(node.getData()); 
+			return; 
+		}
+		else {
+			System.out.println(node.getData());
+			if (node.getLeftChild() != null){
+				traverseInOrderBST(node.getLeftChild());
+			}
+			if (node.getRightChild() != null){
+				traverseInOrderBST(node.getRightChild());
+			}
+		}
+	}
 	
 	//http://thereq.com/q/204/java-software-interview-question/the-nth-smallest-element-in-a-binary-tree
 //	public int nthSmallest(BinNode node, int n){
@@ -213,7 +229,6 @@ public class BinarySearchTree {
 		
 	}
 	
-	
 	public static void main (String args[]){
 		BinarySearchTree bst = new BinarySearchTree(); 
 		BinNode root = bst.init();
@@ -222,8 +237,8 @@ public class BinarySearchTree {
 		//bst.nthSmallest(root, 4);
 		//bst.dfsStack(root);
 		
-		System.out.println(bst.measurePath(root));
-		
+		//System.out.println(bst.measurePath(root));
+		//bst.traversePreOrderBST(root);
 		
 	}
 }
