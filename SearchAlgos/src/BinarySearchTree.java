@@ -43,6 +43,13 @@ public class BinarySearchTree {
 		return root; 
 	}
 	
+	//http://www.careercup.com/question?id=5478679509467136
+	public int addCount(BinNode node, int sum){
+		
+		return 0; 
+	}
+	
+	
 
 	//http://thereq.com/q/203/java-software-interview-question/longest-path-in-a-binary-tree
 	public int measurePath(BinNode node){
