@@ -42,6 +42,32 @@ public class BinarySearchTree {
 		return root; 
 	}
 	
+	
+	public BinNode nthSmallest(BinNode curr, int n){
+		ArrayList<BinNode> stack = new ArrayList<BinNode>(); 
+		while (curr != null){
+			stack.add(0, curr); 
+			curr = curr.left; 
+		}
+		
+		while (n > 0){
+			curr = stack.remove(0);
+			if (curr.right != null){
+				stack.add(0, curr.right);
+				BinNode child = curr.right; 
+				while (child.left != null){
+					child = child.left; 
+					stack.add(0, child);
+				}
+			}
+			n--; 
+		}
+		
+		return curr; 
+		
+		
+	}
+	
 
 	//http://thereq.com/q/203/java-software-interview-question/longest-path-in-a-binary-tree
 	public int measurePath(BinNode node){
@@ -72,11 +98,11 @@ public class BinarySearchTree {
 	private void dfs(BinNode n, ArrayList<BinNode> stack){
 		while (!stack.isEmpty()){
 			BinNode curr = stack.remove(0);
+			System.out.println(curr.getData());
 			
 			if (curr.getRightChild() != null){
 				stack.add(0, curr.getRightChild());
 			}
-			System.out.println(curr.getData());
 			if (curr.getLeftChild() != null){
 				stack.add(0, curr.getLeftChild());
 			}
@@ -217,12 +243,14 @@ public class BinarySearchTree {
 	public static void main (String args[]){
 		BinarySearchTree bst = new BinarySearchTree(); 
 		BinNode root = bst.init();
+		bst.nthSmallest(root, 7);
+		
 		//bst.traverseInOrderBST(root);
 		//bst.printPath(root, 27);
 		//bst.nthSmallest(root, 4);
 		//bst.dfsStack(root);
 		
-		System.out.println(bst.measurePath(root));
+		//System.out.println(bst.measurePath(root));
 		
 		
 	}
